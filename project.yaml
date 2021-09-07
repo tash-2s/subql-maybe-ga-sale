@@ -4,19 +4,15 @@ repository: https://github.com/tash-2s/subql-maybe-ga-sale
 schema: ./schema.graphql
 network:
   endpoint: wss://kusama.api.onfinality.io/public-ws
-  dictionary: https://api.subquery.network/sq/subquery/dictionary-polkadot
 dataSources:
   - name: main
     kind: substrate/Runtime
-    startBlock: 1
+    startBlock: 7479313
     mapping:
       handlers:
-        - handler: handleBlock
-          kind: substrate/BlockHandler
-        - handler: handleEvent
-          kind: substrate/EventHandler
-          filter:
-            module: balances
-            method: Deposit
         - handler: handleCall
           kind: substrate/CallHandler
+          filter:
+              module: utility
+              method: batchAll
+              success: true
