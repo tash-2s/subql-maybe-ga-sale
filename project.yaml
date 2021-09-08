@@ -4,6 +4,7 @@ repository: https://github.com/tash-2s/subql-maybe-ga-sale
 schema: ./schema.graphql
 network:
   endpoint: wss://kusama.api.onfinality.io/public-ws
+  dictionary: https://api.subquery.network/sq/subquery/dictionary-kusama
 dataSources:
   - name: main
     kind: substrate/Runtime
